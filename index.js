@@ -6,7 +6,7 @@ const port = 3000;
 
 // MongoDB Connection Configuration
 const uri =
-  "mongodb+srv://Thanuz:sample@cluster0-knk.r1le5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0-KNK";
+  "mongodb+srv://<dbUsername>:<dbPassword>@cluster0-knk.r1le5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0-KNK";
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
