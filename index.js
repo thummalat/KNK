@@ -33,7 +33,7 @@ async function connectToDatabase() {
 }
 
 // Define API Endpoint to Fetch Data
-app.get("/api/data", async (req, res) => {
+app.get("/api/getproducts", async (req, res) => {
   try {
     const db = await connectToDatabase(); // Get the database
     const collection = db.collection("knk_collection"); // Specify the collection
