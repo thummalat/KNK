@@ -1,12 +1,15 @@
+require("dotenv").config();
 const express = require("express");
 const { MongoClient, ServerApiVersion } = require("mongodb");
 
 const app = express();
 const port = 3000;
 
+const dbUserName = process.env.DB_USERNAME;
+const dbPassword = process.env.DB_PASSWORD;
+
 // MongoDB Connection Configuration
-const uri =
-  "mongodb+srv://<dbUsername>:<dbPassword>@cluster0-knk.r1le5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0-KNK";
+const uri = `mongodb+srv://${dbUserName}:${dbPassword}@cluster0-knk.r1le5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0-KNK`;
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
