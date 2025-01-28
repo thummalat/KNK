@@ -12,9 +12,9 @@ app.use("/api", productRoutes);
 
 console.log("here");
 
-// Connect to MongoDB
-connectToDatabase()
-  .then(() => console.log("Database connection established"))
-  .catch((err) => console.error("Database connection failed:", err));
+// // Connect to MongoDB
+// connectToDatabase()
+//   .then(() => console.log("Database connection established"))
+//   .catch((err) => console.error("Database connection failed:", err));
 
 module.exports = app;

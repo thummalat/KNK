@@ -8,22 +8,23 @@ const dbPassword = process.env.DB_PASSWORD;
 
 const uri = `mongodb+srv://${dbUserName}:${dbPassword}@cluster0-knk.r1le5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0-KNK`;
 
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  },
-});
-
+let client;
 let db;
 
 async function connectToDatabase() {
+  if (db) return db; // Return the existing connection if it's already established
+
   try {
-    if (!client.topology || !client.topology.isConnected()) {
-      await client.connect();
-      console.log("Connected to MongoDB");
-    }
+    client = new MongoClient(uri, {
+      serverApi: {
+        version: ServerApiVersion.v1,
+        strict: true,
+        deprecationErrors: true,
+      },
+    });
+
+    await client.connect();
+    console.log("Connected to MongoDB");
     db = client.db("knk_db"); // Database name
     return db;
   } catch (error) {
