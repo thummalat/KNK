@@ -19,7 +19,6 @@ async function searchProducts(req, res) {
     if (!title) {
       return res.status(400).json({ error: "Title parameter is required" });
     }
-    console.log(title);
     const products = await searchProductsByName(title);
     res.status(200).json(products); // Send matching products as JSON response
   } catch (error) {
