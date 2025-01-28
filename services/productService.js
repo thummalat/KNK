@@ -7,7 +7,7 @@ async function getProducts() {
     // const data = await collection.find({}).toArray(); // Fetch all documents
     // Use projection to exclude the 'price_USA' field
     const data = await collection
-      .find({}, { projection: { price_USA: 0 } })
+      .find({}, { projection: { price_IND: 0 } })
       .toArray();
     return data;
   } catch (error) {
