@@ -10,6 +10,8 @@ app.use(express.json());
 // Routes
 app.use("/api", productRoutes);
 
+console.log("here");
+
 // Connect to MongoDB
 connectToDatabase()
   .then(() => console.log("Database connection established"))
