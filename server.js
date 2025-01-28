@@ -1,7 +1,7 @@
 const app = require("./app");
 const { connectToDatabase } = require("./config/db");
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 // Connect to MongoDB before starting the server
 const startServer = async () => {
