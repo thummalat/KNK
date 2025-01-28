@@ -4,7 +4,11 @@ async function getProducts() {
   try {
     const db = getDb();
     const collection = db.collection("knk_collection"); // Specify the collection
-    const data = await collection.find({}).toArray(); // Fetch all documents
+    // const data = await collection.find({}).toArray(); // Fetch all documents
+    // Use projection to exclude the 'price_USA' field
+    const data = await collection
+      .find({}, { projection: { price_USA: 0 } })
+      .toArray();
     return data;
   } catch (error) {
     console.error("Error fetching products:", error);

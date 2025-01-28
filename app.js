@@ -1,6 +1,6 @@
 const express = require("express");
 const productRoutes = require("./routes/productRoutes");
-const { connectToDatabase } = require("./config/db");
+const ordersRoutes = require("./routes/ordersRoutes");
 
 const app = express();
 
@@ -9,5 +9,6 @@ app.use(express.json());
 
 // Routes
 app.use("/api", productRoutes);
+app.use("/api", ordersRoutes);
 
 module.exports = app;
