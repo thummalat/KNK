@@ -1,7 +1,20 @@
 const {
   getProducts,
   searchProductsByName,
+  getSkusInfo,
 } = require("../services/productService");
+
+async function skusInfo(req, res) {
+  try {
+    const skusInfoData = await getSkusInfo();
+    res.status(200).json(skusInfoData);
+  } catch (error) {
+    console.log("Error fetching skusInfo:", error);
+    res
+      .status(500)
+      .json({ error: "An error occurred while fetching skusdata" });
+  }
+}
 
 async function fetchProducts(req, res) {
   try {
@@ -29,4 +42,4 @@ async function searchProducts(req, res) {
   }
 }
 
-module.exports = { fetchProducts, searchProducts };
+module.exports = { fetchProducts, searchProducts, skusInfo };

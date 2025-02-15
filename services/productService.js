@@ -1,5 +1,18 @@
 const { getDb } = require("../config/db");
 
+async function getSkusInfo() {
+  try {
+    const db = getDb();
+    const collection = db.collection("knk_collection"); // Specify the collection
+    const projection = { sku: 1, title: 1, _id: 0 };
+    const data = await collection.find({}).project(projection).toArray();
+    return data;
+  } catch (error) {
+    console.error("Error fetching skusInformation:", error);
+    throw error;
+  }
+}
+
 async function getProducts() {
   try {
     const db = getDb();
@@ -29,4 +42,4 @@ async function searchProductsByName(title) {
   }
 }
 
-module.exports = { getProducts, searchProductsByName };
+module.exports = { getProducts, searchProductsByName, getSkusInfo };
