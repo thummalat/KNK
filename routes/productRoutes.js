@@ -3,6 +3,7 @@ const {
   fetchProducts,
   searchProducts,
   skusInfo,
+  bestSellersInfo,
 } = require("../controllers/productController");
 
 const router = express.Router();
@@ -11,5 +12,6 @@ const router = express.Router();
 router.get("/getproducts", fetchProducts);
 router.get("/search", searchProducts); // Search products by name
 router.get("/skusinfo", skusInfo);
+router.get("/bestsellers", bestSellersInfo);
 
 module.exports = router;
